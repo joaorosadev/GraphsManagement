@@ -1,0 +1,3 @@
+name;id;morada;x;y
+Google;0;Rua da Google;30.0;30.0
+Sony;1;Rua da Sony;100.0;-50.0

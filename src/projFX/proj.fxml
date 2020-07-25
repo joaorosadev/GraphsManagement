@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projFX.ProjFXMLController">
+   <children>
+      <MenuBar layoutY="2.0" prefHeight="600.0" prefWidth="1000.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#handleReadFileAction" text="Open Text File" />
+                  <MenuItem mnemonicParsing="false" onAction="#handleSaveFileAction" text="Save To Text File" />
+                  <MenuItem mnemonicParsing="false" onAction="#handleSaveBinFileAction" text="Save To Bin File" />
+                  <MenuItem mnemonicParsing="false" onAction="#handleExitFileAction" text="Close" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#handleAbout" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <TabPane layoutY="27.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Grafo PP">
+               <content>
+                  <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0">
+                     <children>
+                        <VBox layoutX="886.0" layoutY="2.0" prefHeight="565.0" prefWidth="100.0">
+                           <children>
+                              <Group fx:id="subtitle" />
+                           </children>
+                        </VBox>
+                        <TextField fx:id="pessoaPP" layoutX="804.0" layoutY="2.0" prefHeight="25.0" prefWidth="82.0" text="    Pessoa" visible="false" />
+                        <Group fx:id="graphPPGroup" />
+                        <HBox fx:id="bipHB1" layoutX="14.0" layoutY="542.0" prefHeight="25.0" prefWidth="637.0" visible="false">
+                           <children>
+                              <Button mnemonicParsing="false" onAction="#handleIsBipartite1" text="Is the graph Bipartite?" />
+                              <TextField fx:id="isBipartite1" prefHeight="25.0" prefWidth="53.0" />
+                              <Button mnemonicParsing="false" onAction="#handleConnectivity" text="Is Connected?" />
+                              <TextField fx:id="connectivityAnswer" prefHeight="25.0" prefWidth="60.0" />
+                           </children>
+                        </HBox>
+                        <VBox fx:id="addNodeVB" layoutX="730.0" layoutY="370.0">
+                           <children>
+                              <TextField fx:id="pessoaX" onKeyReleased="#handleKeyReleasedX" promptText="X" />
+                              <TextField fx:id="pessoaY" onKeyReleased="#handleKeyReleasedY" promptText="Y" />
+                              <TextField fx:id="pessoaName" onKeyReleased="#handleKeyReleasedName" promptText="Name" />
+                              <TextField fx:id="pessoaID" onKeyReleased="#handleKeyReleasedID" promptText="ID" />
+                              <TextField fx:id="pessoaMorada" onKeyReleased="#handleKeyReleasedMorada" promptText="Morada" />
+                              <TextField fx:id="pessoaEspecializacao" onKeyReleased="#handleKeyReleasedEspecializacao" promptText="Especializacao" />
+                              <TextField fx:id="pessoaExperiencia" onKeyReleased="#handleKeyReleasedExperiencia" promptText="Experiencia" />
+                              <Button fx:id="addNodeButton" disable="true" mnemonicParsing="false" onAction="#handleAddNode" text="Add Node" />
+                           </children>
+                        </VBox>
+                        <VBox fx:id="addEdgeVB" layoutX="516.0" layoutY="492.0" prefHeight="100.0" prefWidth="173.0" visible="false">
+                           <children>
+                              <TextField fx:id="fromID" onKeyReleased="#handleKeyReleasedInFrom" promptText="From" />
+                              <TextField fx:id="toID" onKeyReleased="#handleKeyReleasedInTo" promptText="To" />
+                              <Button fx:id="addEdge" disable="true" mnemonicParsing="false" onAction="#handleAddEdge" text="Add Edge" />
+                           </children>
+                        </VBox>
+                        <Button fx:id="removeEdge" disable="true" layoutX="516.0" layoutY="458.0" mnemonicParsing="false" onAction="#handleRemoveEdge" text="Remove Edge" visible="false" />
+                        <Button fx:id="removeNode" disable="true" layoutX="730.0" layoutY="337.0" mnemonicParsing="false" onAction="#handleRemoveNode" text="Remove Node" visible="false" />
+                     </children>
+                  </AnchorPane>
+               </content></Tab>
+          <Tab text="Grafo EP">
+               <content>
+                  <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0">
+                     <children>
+                        <VBox layoutX="900.0" layoutY="2.0" prefHeight="565.0" prefWidth="100.0">
+                           <children>
+                              <Group fx:id="subtitle2" />
+                           </children>
+                        </VBox>
+                        <TextField fx:id="pessoaEP" layoutX="806.0" layoutY="2.0" prefHeight="25.0" prefWidth="82.0" text="    Pessoa" />
+                        <TextField fx:id="empresaEP" layoutX="806.0" layoutY="36.0" prefHeight="25.0" prefWidth="82.0" text="   Empresa" />
+                        <Group fx:id="graphEPGroup" />
+                        <HBox fx:id="bipHB2" layoutX="14.0" layoutY="542.0" visible="false">
+                           <children>
+                              <Button mnemonicParsing="false" onAction="#handleIsBipartite2" text="Is the graph Bipartite?" />
+                              <TextField fx:id="isBipartite2" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </AnchorPane>
+               </content></Tab>
+            <Tab text="Grafo Caminhos">
+               <content>
+                  <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0">
+                     <children>
+                        <VBox layoutX="893.0" layoutY="2.0" prefHeight="565.0" prefWidth="100.0">
+                           <children>
+                              <Group fx:id="subtitle3" />
+                           </children>
+                        </VBox>
+                        <TextField fx:id="pessoaEnc" layoutX="804.0" layoutY="2.0" prefHeight="25.0" prefWidth="82.0" text="    Pessoa" />
+                        <TextField fx:id="empresaEnc" layoutX="804.0" layoutY="36.0" prefHeight="25.0" prefWidth="82.0" text="   Empresa" />
+                        <TextField fx:id="encontroEnc" layoutX="804.0" layoutY="68.0" prefHeight="25.0" prefWidth="82.0" text="   Encontro" />
+                        <TextField fx:id="pontoEnc" layoutX="804.0" layoutY="104.0" prefHeight="25.0" prefWidth="82.0" text="  Ponto Int." />
+                        <Group fx:id="graphEncGroup" />
+                        <HBox layoutX="14.0" layoutY="534.0" prefHeight="27.0" prefWidth="697.0">
+                           <children>
+                              <Button mnemonicParsing="false" onAction="#handlePathAction" prefHeight="25.0" prefWidth="68.0" text="Path" />
+                              <TextField fx:id="sourceID" prefHeight="25.0" prefWidth="96.0" promptText="Source ID" />
+                              <TextField fx:id="destinationID" prefHeight="25.0" prefWidth="101.0" promptText="Destination ID" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </AnchorPane>
+               </content></Tab>
+            <Tab text="Edit Pessoa">
+               <content>
+                  <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0">
+                     <children>
+                        <VBox fx:id="addNodeVB">
+                           <children>
+                              <TextField onKeyReleased="#handleKeyReleasedX" promptText="X" fx:id="xEdit" />
+                              <TextField fx:id="yEdit" onKeyReleased="#handleKeyReleasedY" promptText="Y" />
+                              <TextField fx:id="nameEdit" onKeyReleased="#handleKeyReleasedName" promptText="Name" />
+                              <TextField fx:id="idEdit" onKeyReleased="#handleKeyReleasedID" promptText="ID" />
+                              <TextField fx:id="moradaEdit" onKeyReleased="#handleKeyReleasedMorada" promptText="Morada" />
+                              <TextField fx:id="especializacaoEdit" onKeyReleased="#handleKeyReleasedEspecializacao" promptText="Especializacao" />
+                              <TextField fx:id="experienciaEdit" onKeyReleased="#handleKeyReleasedExperiencia" promptText="Experiencia" />
+                              <Button fx:id="editButton" mnemonicParsing="false" onAction="#handleEditPessoa" text="Edit" />
+                           </children>
+                        </VBox>
+                     </children></AnchorPane>
+               </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>

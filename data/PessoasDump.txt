@@ -1,0 +1,4 @@
+nome;id;morada;especializacao;experiencia
+joao;0;Rua do Joao;Computadores;4;0.0;0.0
+Pedro;1;Rua do Pedro;Telemoveis;2;0.0;0.0
+Joana;2;Rua da Joana;Telemoveis;3;0.0;0.0
